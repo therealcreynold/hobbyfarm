@@ -57,6 +57,7 @@ sleep 10
 ssh root@$server cat /etc/rancher/rke2/rke2.yaml | sed  -e "s/127.0.0.1/$server/g" > ~/.kube/config 
 chmod 0600 ~/.kube/config
 
+
 echo -e "$GREEN" "ok" "$NO_COLOR"
 
 echo -e -n " - rke2 active "
