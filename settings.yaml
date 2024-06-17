@@ -33,7 +33,7 @@ spec:
       image: ami-021b67c90e3e68a8f
       instance_type: m7a.2xlarge
       ssh_username: ec2-user
-  ws_endpoint: hobby-shell.rfed.io
+  ws_endpoint: hobby-shell.rgs.training
 ---
 #apiVersion: hobbyfarm.io/v1
 #kind: Environment
@@ -90,7 +90,7 @@ spec:
       runcmd:
         - mkdir -p /etc/rancher/rke2/ /var/lib/rancher/rke2/server/manifests/
         - systemctl enable --now iscsid.service
-        - curl -L -o /etc/sysctl.conf https://raw.githubusercontent.com/clemenko/hobbyfarm/main/kernel_tuning.txt
+        - curl -L -o /etc/sysctl.conf https://raw.githubusercontent.com/therealcreynold/hobbyfarm/main/kernel_tuning.txt
         - sysctl -p
         - echo "export PATH=/root/.local/bin:/root/bin:/usr/local/sbin:/sbin:/bin:/usr/sbin:/usr/bin:/usr/local/bin/" > /root/.bashrc
   image: rocky-9.4
@@ -110,7 +110,7 @@ spec:
       runcmd:
         - mkdir -p /etc/rancher/rke2/
         - systemctl disable ufw --now
-        - curl -L -o /etc/sysctl.conf https://raw.githubusercontent.com/clemenko/hobbyfarm/main/kernel_tuning.txt
+        - curl -L -o /etc/sysctl.conf https://raw.githubusercontent.com/therealcreynold/hobbyfarm/main/kernel_tuning.txt
         - sysctl -p
   image: ubuntu-24.04
   name: ubuntu-24.04
@@ -129,7 +129,7 @@ spec:
       - open-iscsi
       runcmd:
         - mkdir -p /etc/rancher/rke2/
-        - curl -L -o /etc/sysctl.conf https://raw.githubusercontent.com/clemenko/hobbyfarm/main/kernel_tuning.txt
+        - curl -L -o /etc/sysctl.conf https://raw.githubusercontent.com/therealcreynold/hobbyfarm/main/kernel_tuning.txt
         - sysctl -p
   image: sles-15-sp4
   name: sles-15-sp4
