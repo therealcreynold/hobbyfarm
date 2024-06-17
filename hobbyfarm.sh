@@ -35,7 +35,7 @@ echo -e -n " checking for ssh "
 
 server=$(awslist)
 
-until [ $(ssh -i "~/.ssh/creynold-hobbyfarm.pem" -o ConnectTimeout=1 root@$server 'exit' 2>&1 | grep 'timed out\|refused' | wc -l) = 0 ]; do echo -e -n "." ; sleep 5; done
+until [ $(ssh -o ConnectTimeout=1 root@$server 'exit' 2>&1 | grep 'timed out\|refused' | wc -l) = 0 ]; do echo -e -n "." ; sleep 5; done
 echo -e "$GREEN" "ok" "$NO_COLOR"
 
 #update DNS
@@ -54,7 +54,7 @@ ssh root@$server 'mkdir -p /etc/rancher/rke2/; useradd -r -c "etcd user" -s /sbi
 
 sleep 10
 
-ssh -i "~/.ssh/creynold-hobbyfarm.pem" root@$server cat /etc/rancher/rke2/rke2.yaml | sed  -e "s/127.0.0.1/$server/g" > ~/.kube/config 
+ssh root@$server cat /etc/rancher/rke2/rke2.yaml | sed  -e "s/127.0.0.1/$server/g" > ~/.kube/config 
 chmod 0600 ~/.kube/config
 
 echo -e "$GREEN" "ok" "$NO_COLOR"
