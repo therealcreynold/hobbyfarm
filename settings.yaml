@@ -13,24 +13,24 @@ spec:
     cred_secret: aws-creds
     executor_image: rancher/terraform-controller-executor:v0.0.13-alpha1
     module: tf-module-aws
-    region: us-east-1
-    subnet: subnet-0ca6bea3c0d18b6f3
-    vpc_security_group_id: sg-0c87eb1835fdbb24f
+    region: us-east-2
+    subnet: subnet-0c976e0b3a97d866b
+    vpc_security_group_id: sg-00541c4abe118f2b5
   provider: aws
   template_mapping:
     rocky-9.4:
       disk: "80"
-      image: ami-09eb79aa215c2a900
+      image: ami-051a0f669bb174783
       instance_type: m7a.2xlarge
       ssh_username: rocky
     ubuntu-24.04:
       disk: "80"
-      image: ami-04b70fa74e45c3917
+      image: ami-09040d770ffe2224f
       instance_type: m7a.2xlarge
       ssh_username: ubuntu
     sles-15-sp4:
       disk: "80"
-      image: ami-021b67c90e3e68a8f
+      image: ami-0a37aa94b23ef089a
       instance_type: m7a.2xlarge
       ssh_username: ec2-user
   ws_endpoint: hobby-shell.rgs.training
